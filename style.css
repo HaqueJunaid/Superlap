@@ -1,0 +1,462 @@
+@font-face {
+    font-family: H1;
+    src: url(./Fonts/HELVETICA.woff2);
+}
+
+@font-face {
+    font-family: H2;
+    src: url(./Fonts/HELVETICA2.woff2);
+}
+
+@font-face {
+    font-family: jtus;
+    src: url(./Fonts/JTUS.woff2);
+}
+
+@font-face {
+    font-family: swiss;
+    src: url(./Fonts/SWISS.woff2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #FAF6EF;
+    font-family: swiss;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #FAF6EF;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 1.5rem;
+    border-bottom: 1px solid #2f2f2f;
+    z-index: 10;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.aboutOpt {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.menu {
+    background-color: #FAF6EF;
+    position: fixed;
+    left: -50%;
+    top: 0;
+    z-index: 100;
+    width: 32rem;
+    height: 100vh;
+    border-right: 1px solid #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: left 0.4s ease;
+}
+
+.menu.open {
+    left: 0;
+    z-index: 50;
+}
+
+.menu .navigations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navigations .navigation {
+    padding: 1rem;
+    border-bottom: 1px solid #2f2f2f;
+    position: relative;
+    cursor: pointer;
+}
+
+.navigation svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    left: 95%;
+    cursor: pointer;
+}
+
+.navigation span {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+.other {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.other a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #2f2f2f;
+    line-height: 90%;
+}
+
+.search {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.search input {
+    width: 60%;
+    border: none;
+    padding: 5px 0;
+    background-color: transparent;
+    color: #2f2f2f;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.search input::placeholder {
+    color: #2f2f2f;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.wrapper .homePage {
+    width: 100%;
+    padding-right: 1.5rem;
+}
+
+.wrapper .homePage .mainTitle {
+    margin-top: 60px;
+    width: 100%;
+    border-bottom: 1px solid #2f2f2f;
+    padding: 15px 1rem;
+    padding-right: 1.5rem;
+}
+
+.mainTitle img {
+    width: 100%;
+}
+
+.subLinks {
+    width: 100%;
+    padding: 1rem;
+    padding-right: 1.5rem;
+}
+
+.subLinks ul {
+    position: relative;
+    text-align: center;
+}
+
+ul li {
+    position: relative;
+    display: inline;
+    margin-right: 5.2rem;
+}
+
+ul .circle::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -55px;
+    background-color: #000;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+ul li a {
+    text-decoration: none;
+    font-size: 135px;
+    text-transform: uppercase;
+    letter-spacing: -7px;
+    line-height: 0.95;
+    color: #000;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: rgb(103, 33, 255);
+}
+
+.marquee {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    white-space: nowrap;
+    height: fit-content;
+    background-color: #FF39A4;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.marquee .part {
+    display: inline-block;
+    animation: anim 30s linear infinite;
+}
+
+.part p {
+    font-weight: 400;
+    font-family: swiss;
+    margin-right: 2rem;
+    font-size: 2.5rem;
+    white-space: nowrap;
+    line-height: 0.9;
+    display: inline;
+    position: relative;
+}
+
+.part p::before {
+    content: "";
+    position: absolute;
+    left: -23px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    top: 20px;
+}
+
+.marquee:hover .part {
+    animation-play-state: paused;
+}
+
+.marquee:hover .part P {
+    color: #fff;
+}
+
+.marquee:hover .part p::before{
+    background-color: #fff;
+}
+
+@keyframes anim {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.video {
+    width: 100vw;
+    position: relative;
+}
+
+.video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.secondPage {
+    position: relative;
+    width: 100%;
+}
+
+.secondPage .secTop {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    padding: 0.5rem 1rem;
+    padding-right: 1.5rem;
+}
+
+.secTop span {
+    font-family: swiss;
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    line-height: 100%;
+}
+
+.secBottom {
+    width: 100%;
+    position: relative;
+    padding: 1rem 1rem;
+    padding-right: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.secBottom h1 {
+    font-family: swiss;
+    font-size: 4rem;
+    font-weight: 100;
+    line-height: 90%;
+    margin-bottom: 40px;
+}
+
+.secBottom a {
+    font-size: 4rem;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.secBottom a:hover {
+    color: rgb(103, 33, 255);
+}
+
+.hoverPage {
+    width: 100%;
+    position: relative;
+    font-family: swiss;
+}
+
+.hoverPage .header {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 1.5rem;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.hoverPage .header h1 {
+    font-size: 6rem;
+    text-transform: uppercase;
+    line-height: 90%;
+    margin-top: 20px;
+    font-weight: 100;
+}
+
+.hoverPage .header a {
+    color: #000;
+    padding: 5px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.header a::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.header a:hover {
+    color: rgb(103, 33, 255);
+}
+
+.header a:hover::after {
+    background-color: rgb(103, 33, 255);;
+}
+
+.hoverArea {
+    position: relative;
+    width: 100%;
+}
+
+.hoverArea ul {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;;
+}
+.hoverArea ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 1rem;
+    padding-right: 1.5rem;
+    border-bottom: 1px solid #000;
+    position: relative;
+    cursor: pointer;
+}
+
+.hoverArea ul .center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+li span {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.hoverPage .imageshower {
+    position: fixed;
+    z-index: 20;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 35rem;
+    height: 35rem;
+    pointer-events: none;
+}
+
+.imageshower img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fouthPage {
+    width: 100%;;
+    height: 100vh;
+    padding: 1rem;
+    padding-right: 1.5rem;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fouthPage .cont {
+    width: 50%;
+    height: 100%;
+}
+
+.fouthPage .cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
